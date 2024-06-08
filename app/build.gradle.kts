@@ -4,14 +4,21 @@ import java.text.SimpleDateFormat
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.jetbrains.kotlin.kapt)
 }
 
 android {
-    namespace = "com.mvvm.jetpact"
+    namespace = "com.mvvm.jetpack"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.mvvm.jetpact"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments["room.schemaLocation"] = "$projectDir/schemas"
+            }
+        }
+
+        applicationId = "com.mvvm.jetpack"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -88,6 +95,7 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures {
+        dataBinding=true
         viewBinding = true
     }
 }
@@ -100,7 +108,26 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.databinding.runtime)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    //
+    implementation(libs.lifecycle.runtime.ktx)
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.gson)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.adapter.rxjava2)
+    implementation(libs.databinding.runtime)
+    implementation(libs.picasso)
+    implementation(libs.swiperefreshlayout)
+    implementation(libs.circleimageview)
+    implementation(libs.room)
+    implementation(libs.room.ktx)
+    annotationProcessor(libs.room.compiler)
+    kapt(libs.room.compiler)
+
+
 }

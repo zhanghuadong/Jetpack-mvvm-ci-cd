@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Jetpact-mvvm-ci-cd"
+rootProject.name = "jetpack-mvvm-ci-cd"
 include(":app")
  

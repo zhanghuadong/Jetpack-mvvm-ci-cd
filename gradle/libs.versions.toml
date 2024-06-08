@@ -10,6 +10,17 @@ material = "1.10.0"
 constraintlayout = "2.1.4"
 navigationFragmentKtx = "2.6.0"
 navigationUiKtx = "2.6.0"
+databindingRuntime = "8.4.1"
+
+gsonVersion="2.8.8"
+retrofitVersion="2.9.0"
+retrofitGsonVersion="2.9.0"
+databindingRuntimeVersion="8.4.1"
+picassoVersion="2.8"
+swiperefreshlayoutVersion="1.1.0"
+circleimageviewVersion="3.0.1"
+roomVersion="2.5.1"
+lifecycleVersion="2.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -21,8 +32,40 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
+androidx-databinding-runtime = { group = "androidx.databinding", name = "databinding-runtime", version.ref = "databindingRuntime" }
+
+lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleVersion" }
+lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleVersion" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gsonVersion" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofitVersion" }
+converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitGsonVersion" } #Gson转换器，用于将JSON数据转为Java对象
+adapter-rxjava2 = { group = "com.squareup.retrofit2", name = "adapter-rxjava2", version.ref = "retrofitGsonVersion" } #RxJava适配器，用于与RxJava结合使用
+databinding-runtime = { group = "androidx.databinding", name = "databinding-runtime", version.ref = "databindingRuntimeVersion" }
+picasso = { group = "com.squareup.picasso", name = "picasso", version.ref = "picassoVersion" }
+swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swiperefreshlayoutVersion" }
+circleimageview = { group = "de.hdodenhof", name = "circleimageview", version.ref = "circleimageviewVersion" }
+room = { group = "androidx.room", name = "room-runtime", version.ref = "roomVersion" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomVersion" } #添加 Room Kotlin 扩展库依赖
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomVersion" } #添加 Room Kotlin 扩展库依赖
+
+#implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
+#implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
+
+#implementation ("com.google.code.gson:gson:2.8.8")
+#implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+#implementation ("com.squareup.retrofit2:converter-gson:2.9.0") // Gson转换器，用于将JSON数据转为Java对象
+#implementation ("com.squareup.retrofit2:adapter-rxjava2:2.9.0")// RxJava适配器，用于与RxJava结合使用
+#implementation ("androidx.databinding:databinding-runtime:4.2.1")
+
+#implementation ("com.squareup.picasso:picasso:2.8")
+#implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+#implementation ("de.hdodenhof:circleimageview:3.0.1")
+#implementation ("androidx.room:room-runtime:2.4.1")
+#annotationProcessor ("androidx.room:room-compiler:2.4.1")
+#// 添加 Room Kotlin 扩展库依赖
+#implementation ("androidx.room:room-ktx:2.4.1")
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-
+jetbrains-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
