@@ -10,6 +10,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: Automatic Lint Fix
+      uses: getsentry/action-eslint-fix@019e40047bc28cbe8c2c12073d37365737182ad4
+      with:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - uses: actions/checkout@v4
     - name: set up JDK 17
       uses: actions/setup-java@v3
