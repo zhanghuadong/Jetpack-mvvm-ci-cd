@@ -1,6 +1,5 @@
 package com.mvvm.jetpack
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -21,10 +20,6 @@ class MvvmActivity : AppCompatActivity() {
         binding.srlSwipeRefreshLayout.setOnRefreshListener {
             viewModel.refresh()
             binding.srlSwipeRefreshLayout.isRefreshing = false
-        }
-
-        binding.btnGo.setOnClickListener {
-            startActivity(Intent(this,MainActivity::class.java))
         }
 
     }

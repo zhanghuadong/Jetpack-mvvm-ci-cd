@@ -5,6 +5,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.jetbrains.kotlin.kapt)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.androidx.navigation.safeargs.kotlin)
 }
 
 android {
@@ -17,6 +20,11 @@ android {
                 arguments["room.schemaLocation"] = "$projectDir/schemas"
             }
         }
+
+        buildConfigField("String", "UNSPLASH_ACCESS_KEY", "\"" + getUnsplashAccess() + "\"")
+       //ndk {
+       //     abiFilters += listOf("armeabi-v7a","arm64-v8a")
+        //}
 
         applicationId = "com.mvvm.jetpack"
         minSdk = 24
@@ -87,6 +95,13 @@ android {
         }
     }
 
+    //jniLibs目录指向libs目录
+    sourceSets {
+        getByName("main") {
+            jniLibs.srcDirs("libs")
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -97,6 +112,7 @@ android {
     buildFeatures {
         dataBinding=true
         viewBinding = true
+        buildConfig =true
     }
 }
 
@@ -124,10 +140,31 @@ dependencies {
     implementation(libs.picasso)
     implementation(libs.swiperefreshlayout)
     implementation(libs.circleimageview)
-    implementation(libs.room)
+    implementation(libs.androidx.room.common)
+    implementation(libs.room.runtime)
     implementation(libs.room.ktx)
-    annotationProcessor(libs.room.compiler)
     kapt(libs.room.compiler)
+    annotationProcessor(libs.room.compiler)
+    implementation(libs.room.testing)
+    implementation(libs.logging.interceptor)
+    implementation(libs.paging.runtime.ktx)
+    implementation(libs.glide)
 
+    implementation(libs.navigation.fragment.ktx)
+    implementation(libs.navigation.ui.ktx)
+    implementation(libs.viewpager2)
 
+    implementation(libs.hilt.android.testing)
+    implementation(libs.hilt.navigation.fragment)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+    implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.androidx.work.testing)
+    implementation(libs.androidx.work.runtime.ktx)
+    //implementation(libs.hilt.navigation.compose)
+
+}
+
+fun getUnsplashAccess(): String? {
+    return project.findProperty("unsplash_access_key") as? String
 }

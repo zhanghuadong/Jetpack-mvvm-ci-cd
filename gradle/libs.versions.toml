@@ -19,8 +19,20 @@ databindingRuntimeVersion="8.4.1"
 picassoVersion="2.8"
 swiperefreshlayoutVersion="1.1.0"
 circleimageviewVersion="3.0.1"
-roomVersion="2.5.1"
+roomVersion="2.6.1"
 lifecycleVersion="2.6.1"
+
+
+hilt = "2.51.1"
+hiltNavigationFragmentVersion = "1.0.0"
+ksp = "1.9.23-1.0.20"
+work = "2.9.0"
+okhttpLoggingVersion = "4.9.3"
+pagingVersion = '3.1.1'
+glideVersion = '4.13.1'
+navigationVersion = '2.4.1'
+viewPagerVersion = '1.0.0'
+safeargsVersion = '2.7.7'
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -44,13 +56,30 @@ databinding-runtime = { group = "androidx.databinding", name = "databinding-runt
 picasso = { group = "com.squareup.picasso", name = "picasso", version.ref = "picassoVersion" }
 swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swiperefreshlayoutVersion" }
 circleimageview = { group = "de.hdodenhof", name = "circleimageview", version.ref = "circleimageviewVersion" }
-room = { group = "androidx.room", name = "room-runtime", version.ref = "roomVersion" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "roomVersion" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomVersion" } #添加 Room Kotlin 扩展库依赖
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomVersion" } #添加 Room Kotlin 扩展库依赖
+room-testing = { group = "androidx.room", name = "room-testing", version.ref = "roomVersion" }
+androidx-room-common = { group = "androidx.room", name = "room-common", version.ref = "roomVersion" }
+
+logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttpLoggingVersion" }
+paging-runtime-ktx = { group = "androidx.paging", name = "paging-runtime-ktx", version.ref = "pagingVersion" }
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glideVersion" }
+
+navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationVersion" }
+navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationVersion" }
+viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewPagerVersion" }
+
+hilt-android = { module = "com.google.dagger:hilt-android", name = "hilt-android", version.ref = "hilt" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", name = "hilt-android-testing", version.ref = "hilt" }
+androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "work" }
+androidx-work-testing = { module = "androidx.work:work-testing", version.ref = "work" }
+hilt-navigation-fragment = { module = "androidx.hilt:hilt-navigation-fragment",name = "hilt-navigation-fragment", version.ref = "hiltNavigationFragmentVersion" }
+
 
 #implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
 #implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
-
 #implementation ("com.google.code.gson:gson:2.8.8")
 #implementation ("com.squareup.retrofit2:retrofit:2.9.0")
 #implementation ("com.squareup.retrofit2:converter-gson:2.9.0") // Gson转换器，用于将JSON数据转为Java对象
@@ -64,8 +93,13 @@ room-compiler = { group = "androidx.room", name = "room-compiler", version.ref =
 #annotationProcessor ("androidx.room:room-compiler:2.4.1")
 #// 添加 Room Kotlin 扩展库依赖
 #implementation ("androidx.room:room-ktx:2.4.1")
+[bundles]
+#groovy = ["groovy-core", "groovy-json", "groovy-nio"]
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 jetbrains-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+androidx-navigation-safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "safeargsVersion" }
